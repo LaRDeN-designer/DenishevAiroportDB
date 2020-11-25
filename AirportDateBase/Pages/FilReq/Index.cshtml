@@ -1,0 +1,86 @@
+﻿@page
+@model AirportDateBase.Pages.FilReq.IndexModel
+@{
+}
+<script>
+    function BtnFun(ClassName, obj) {
+        var value = obj.value;
+        var name = "." + ClassName;
+        if (value[0] != "-") {
+            $(name).prop('disabled', false);
+        }
+        else {
+            $(name).prop('disabled', true);
+        }
+    }
+</script>
+
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link text-dark" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Запросы
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <ul>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-page="Request/PersonnelDepartment">Отдел кардров</a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-page="Request/Plane">Самолеты</a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-page="Request/Crews">Экипажи</a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-page="Request/Flight">Рейсы</a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-page="Request/Tickets">Билеты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Фильтры
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                <form>
+                    Отфильтровать сотрудников по должности:
+                    <select asp-items="Model.SelPost" name="id" class="form-control-sm" onclick="BtnFun('FilPost',this)">
+                        <option valve="-1">не выбрано</option>
+                    </select>
+                    <button asp-page="Filter/FilterPersDep" class="bth btn-primary FilPost" disabled>Отфильтровать</button>
+                </form>
+                <br />
+                <form>
+                    Отфильтровать самолеты по типам:
+                    <select asp-items="Model.PlaneType" name="id" class="form-control-sm" onclick="BtnFun('FilPost',this)">
+                        <option valve="-1">не выбрано</option>
+                    </select>
+                    <button asp-page="Filter/FilterTypePlane" class="bth btn-primary FilPost" disabled>Отфильтровать</button>
+                </form>
+                <br />
+                <form>
+                    Отфильтровать билеты по рейсам:
+                    <select asp-items="Model.TicketsType" name="id" class="form-control-sm" onclick="BtnFun('FilPost',this)">
+                        <option valve="-1">не выбрано</option>
+                    </select>
+                    <button asp-page="Filter/FilterTickets" class="bth btn-primary FilPost" disabled>Отфильтровать</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@page
+@model AirportDateBase.Pages.Type_Plane.DeleteModel
+
+@{
+    ViewData["Title"] = "Удалить";
+}
+
+<h1>Удалить</h1>
+
+<h3>Вы уверены?</h3>
+<div>
+    <h4>Тип самолета</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Type_plane.Name_plane)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Type_plane.Name_plane)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Type_plane.Limit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Type_plane.Limit)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Type_plane.Purpose)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Type_plane.Purpose)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Type_plane.ID" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-page="./Index">Назад</a>
+    </form>
+</div>

@@ -1,0 +1,73 @@
+﻿@page
+@model AirportDateBase.Pages.Plane.DetailsModel
+
+@{
+    ViewData["Title"] = "Детали";
+}
+
+<h1>Детали</h1>
+
+<div>
+    <h4>рейса:</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Plane.Type_ID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Plane.Type_ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Plane.Employee_ID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Plane.Employee_ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Plane.Mark)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Plane.Mark)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Plane.Capacity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Plane.Capacity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Plane.Tonnage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Plane.Tonnage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Plane.Technical_parameters)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Plane.Technical_parameters)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Plane.Release_date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Plane.Release_date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Plane.Date_last_repair)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Plane.Date_last_repair)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Plane.Hours_flown)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Plane.Hours_flown)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Plane.ID">Редактировать</a> |
+    <a asp-page="./Index">Назад</a>
+</div>

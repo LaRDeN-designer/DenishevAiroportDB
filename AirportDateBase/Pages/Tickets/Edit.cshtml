@@ -1,0 +1,55 @@
+﻿@page
+@model AirportDateBase.Pages.Tickets.EditModel
+
+@{
+    ViewData["Title"] = "Редактировать";
+}
+
+<h1>Редактировать</h1>
+
+<h4>билеты</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Tickets.ID" />
+            <div class="form-group">
+                <label asp-for="Tickets.Name_passenger" class="control-label"></label>
+                <input asp-for="Tickets.Name_passenger" class="form-control" />
+                <span asp-validation-for="Tickets.Name_passenger" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tickets.Pasport_Date" class="control-label"></label>
+                <input asp-for="Tickets.Pasport_Date" class="form-control" />
+                <span asp-validation-for="Tickets.Pasport_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tickets.Room" class="control-label"></label>
+                <input asp-for="Tickets.Room" class="form-control" />
+                <span asp-validation-for="Tickets.Room" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tickets.Price" class="control-label"></label>
+                <input asp-for="Tickets.Price" class="form-control" />
+                <span asp-validation-for="Tickets.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tickets.Flight_ID" class="control-label"></label>
+                <input asp-for="Tickets.Flight_ID" class="form-control" />
+                <span asp-validation-for="Tickets.Flight_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

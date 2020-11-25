@@ -1,0 +1,64 @@
+﻿@page
+@model AirportDateBase.Pages.Flight.CreateModel
+
+@{
+    ViewData["Title"] = "Добавить";
+}
+
+<h1>Добавить</h1>
+
+<h4>Рейс</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Flight.Plane_ID" class="control-label"></label>
+                <input asp-for="Flight.Plane_ID" class="form-control" />
+                <span asp-validation-for="Flight.Plane_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Flight.Crew_ID" class="control-label"></label>
+                <input asp-for="Flight.Crew_ID" class="form-control" />
+                <span asp-validation-for="Flight.Crew_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Flight.Date" class="control-label"></label>
+                <input asp-for="Flight.Date" class="form-control" />
+                <span asp-validation-for="Flight.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Flight.Time" class="control-label"></label>
+                <input asp-for="Flight.Time" class="form-control" />
+                <span asp-validation-for="Flight.Time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Flight.Departure" class="control-label"></label>
+                <input asp-for="Flight.Departure" class="form-control" />
+                <span asp-validation-for="Flight.Departure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Flight.Arrival" class="control-label"></label>
+                <input asp-for="Flight.Arrival" class="form-control" />
+                <span asp-validation-for="Flight.Arrival" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Flight.Time_flight" class="control-label"></label>
+                <input asp-for="Flight.Time_flight" class="form-control" />
+                <span asp-validation-for="Flight.Time_flight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Добавить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

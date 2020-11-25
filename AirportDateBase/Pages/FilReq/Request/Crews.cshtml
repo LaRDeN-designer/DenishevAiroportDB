@@ -1,0 +1,77 @@
+﻿@page
+@model AirportDateBase.Pages.FilReq.Request.CrewsModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Crew[0].ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Crew[0].Employee_1ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Crew[0].Employee_2ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Crew[0].Employee_3ID)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Crew)
+        {
+            <tr>
+                <td>
+                    @{
+                        try
+                        {
+                            @Model.Employee.First(r => r.ID == item.ID).FIO
+                        }
+                        catch
+                        {
+                            <p>Нет</p>
+                        }
+                    }
+                </td>
+                <td>
+                    @{
+                        try
+                        {
+                            @Model.Employee.First(r => r.ID == item.Employee_1ID).FIO
+                        }
+                        catch
+                        {
+                            <p>Нет</p>
+                        }
+                    }
+                </td>
+                <td>
+                    @{
+                        try
+                        {
+                            @Model.Employee.First(r => r.ID == item.Employee_2ID).FIO
+                        }
+                        catch
+                        {
+                            <p>Нет</p>
+                        }
+                    }
+                </td>
+                <td>
+                    @{
+                        try
+                        {
+                            @Model.Employee.First(r => r.ID == item.Employee_3ID).FIO
+                        }
+                        catch
+                        {
+                            <p>Нет</p>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

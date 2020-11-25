@@ -1,0 +1,43 @@
+﻿@page
+@model AirportDateBase.Pages.Posts.DetailsModel
+
+@{
+    ViewData["Title"] = "Детали";
+}
+
+<h1>Детали</h1>
+
+<div>
+    <h4>должность</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Posts.Name_Post)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Posts.Name_Post)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Posts.Request)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Posts.Request)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Posts.Charge)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Posts.Charge)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Posts.Salary)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Posts.Salary)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Posts.ID">Редактировать</a> |
+    <a asp-page="./Index">Назад</a>
+</div>

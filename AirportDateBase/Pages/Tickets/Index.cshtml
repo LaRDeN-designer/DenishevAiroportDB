@@ -1,0 +1,76 @@
+﻿@page
+@model AirportDateBase.Pages.Tickets.IndexModel
+
+@{
+    ViewData["Title"] = "Билеты";
+}
+
+<h1>Билеты</h1>
+
+<p>
+    <a asp-page="Create">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tickets[0].ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tickets[0].Name_passenger)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tickets[0].Pasport_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tickets[0].Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tickets[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tickets[0].Flight_ID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Tickets) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name_passenger)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pasport_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @{
+                    try
+                    {
+                        @Model.Flight.First(r => r.ID == item.Flight_ID).Departure <br />
+                        @Model.Flight.First(r => r.ID == item.Flight_ID).Arrival
+                    }
+                    catch
+                    {
+                        <p>Нет</p>
+                    }
+                }
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Редактировать</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Дентали</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

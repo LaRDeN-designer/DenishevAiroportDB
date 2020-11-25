@@ -1,0 +1,96 @@
+﻿@page
+@model AirportDateBase.Pages.Flight.IndexModel
+
+@{
+    ViewData["Title"] = "Рейсы";
+}
+
+<h1>Рейсы</h1>
+
+<p>
+    <a asp-page="Create">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Flight[0].ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flight[0].Plane_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flight[0].Crew_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flight[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flight[0].Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flight[0].Departure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flight[0].Arrival)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flight[0].Time_flight)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Flight) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @{
+                    try
+                    {
+                        @Model.Plane.First(r => r.ID == item.Plane_ID).ID
+                    }
+                    catch
+                    {
+                        <p>Нет</p>
+                    }
+                }
+            </td>
+            <td>
+                @{
+                    try
+                    {
+                        @Model.Crew.First(r => r.ID == item.Crew_ID).ID
+                    }
+                    catch
+                    {
+                        <p>Нет</p>
+                    }
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arrival)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time_flight)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Редактировать</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Детали</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,88 @@
+﻿@page
+@model AirportDateBase.Pages.FilReq.Filter.FilterTypePlaneModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane[0].ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane[0].Type_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane[0].Employee_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane[0].Mark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane[0].Capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane[0].Tonnage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane[0].Technical_parameters)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane[0].Release_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane[0].Date_last_repair)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane[0].Hours_flown)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Plane)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                   
+                            @Model.Type_plane.Name_plane
+                       
+                </td>
+                <td>
+                    @{
+                        try
+                        {
+                            @Model.Employee.First(r => r.ID == item.Employee_ID).FIO
+                        }
+                        catch
+                        {
+                            <p>Нет</p>
+                        }
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tonnage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Technical_parameters)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Release_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_last_repair)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hours_flown)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

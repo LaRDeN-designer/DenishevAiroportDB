@@ -1,0 +1,47 @@
+﻿@page
+@model AirportDateBase.Pages.FilReq.Request.PlaneModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane[0].Type_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plane[0].Employee_ID)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Plane)
+        {
+            <tr>
+                <td>
+                    @{
+                        try
+                        {
+                            @Model.Type_plane.First(r => r.ID == item.Type_ID).Name_plane
+                        }
+                        catch
+                        {
+                            <p>Нет</p>
+                        }
+                    }
+                </td>
+                <td>
+                    @{
+                        try
+                        {
+                            @Model.Employee.First(r => r.ID == item.Employee_ID).FIO
+                        }
+                        catch
+                        {
+                            <p>Нет</p>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

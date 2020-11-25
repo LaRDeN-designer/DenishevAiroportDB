@@ -1,0 +1,38 @@
+﻿@page
+@model AirportDateBase.Pages.FilReq.Request.PersonnelDepartmentModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Posts_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].FIO)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Employee)
+        {
+            <tr>
+                <td>
+                    @{
+                        try
+                        {
+                            @Model.Posts.First(r => r.ID == item.Posts_ID).Name_Post
+                        }
+                        catch
+                        {
+                            <p>Нет</p>
+                        }
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FIO)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

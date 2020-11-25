@@ -1,0 +1,65 @@
+﻿@page
+@model AirportDateBase.Pages.Employee.EditModel
+
+@{
+    ViewData["Title"] = "Редактировать";
+}
+
+<h1>Редактировать</h1>
+
+<h4>сотрудника:</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Employee.ID" />
+            <div class="form-group">
+                <label asp-for="Employee.Posts_ID" class="control-label"></label>
+                <input asp-for="Employee.Posts_ID" class="form-control" />
+                <span asp-validation-for="Employee.Posts_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.FIO" class="control-label"></label>
+                <input asp-for="Employee.FIO" class="form-control" />
+                <span asp-validation-for="Employee.FIO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Age" class="control-label"></label>
+                <input asp-for="Employee.Age" class="form-control" />
+                <span asp-validation-for="Employee.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Gender" class="control-label"></label>
+                <input asp-for="Employee.Gender" class="form-control" />
+                <span asp-validation-for="Employee.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Adress" class="control-label"></label>
+                <input asp-for="Employee.Adress" class="form-control" />
+                <span asp-validation-for="Employee.Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Telephone" class="control-label"></label>
+                <input asp-for="Employee.Telephone" class="form-control" />
+                <span asp-validation-for="Employee.Telephone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Pasport_data" class="control-label"></label>
+                <input asp-for="Employee.Pasport_data" class="form-control" />
+                <span asp-validation-for="Employee.Pasport_data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

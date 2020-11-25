@@ -1,0 +1,87 @@
+﻿@page
+@model AirportDateBase.Pages.Employee.IndexModel
+
+@{
+    ViewData["Title"] = "Сотрудники";
+}
+
+<h1>Сотрудники</h1>
+
+<p>
+    <a asp-page="Create">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Posts_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].FIO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Adress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Telephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Pasport_data)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Employee) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @{
+                    try
+                    {
+                        @Model.Posts.First(r => r.ID == item.Posts_ID).Name_Post
+                    }
+                    catch
+                    {
+                        <p>Нет</p>
+                    }
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FIO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telephone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pasport_data)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Редактировать</a>
+                <a asp-page="./Details" asp-route-id="@item.ID">Детали</a>
+                <a asp-page="./Delete" asp-route-id="@item.ID">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

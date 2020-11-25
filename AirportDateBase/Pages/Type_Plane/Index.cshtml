@@ -1,0 +1,54 @@
+﻿@page
+@model AirportDateBase.Pages.Type_Plane.IndexModel
+
+@{
+    ViewData["Title"] = "Тип самолета";
+}
+
+<h1>Тип самолета</h1>
+
+<p>
+    <a asp-page="Create">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Type_plane[0].ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type_plane[0].Name_plane)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type_plane[0].Limit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type_plane[0].Purpose)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Type_plane) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name_plane)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Limit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Purpose)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Редактировать</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Детали</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,37 @@
+﻿@page
+@model AirportDateBase.Pages.Type_Plane.DetailsModel
+
+@{
+    ViewData["Title"] = "Детали";
+}
+
+<h1>Детали</h1>
+
+<div>
+    <h4>типа самолета:</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Type_plane.Name_plane)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Type_plane.Name_plane)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Type_plane.Limit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Type_plane.Limit)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Type_plane.Purpose)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Type_plane.Purpose)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Type_plane.ID">Редактировать</a> |
+    <a asp-page="./Index">Назад</a>
+</div>

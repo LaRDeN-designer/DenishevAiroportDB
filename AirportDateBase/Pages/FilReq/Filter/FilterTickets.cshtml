@@ -1,0 +1,53 @@
+﻿@page
+@model AirportDateBase.Pages.FilReq.Filter.FilterTicketsModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tickets[0].ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tickets[0].Name_passenger)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tickets[0].Pasport_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tickets[0].Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tickets[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tickets[0].Flight_ID)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Tickets)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name_passenger)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pasport_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Model.Flight.ID
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
